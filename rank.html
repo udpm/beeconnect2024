@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Price List</title>
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link rel="stylesheet" href="css/dataTables.dataTables.css">
+    <style>
+        td:last-child {
+            text-align: center !important;
+        }
+
+        tr:nth-child(1) {
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        tr:nth-child(2) {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        tr:nth-child(3) {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        table {
+            border-spacing: 0 10px !important;
+            /* khoảng cách giữa các hàng */
+            border-collapse: separate !important;
+            /* cần thiết để `border-spacing` hoạt động */
+        }
+
+        body {
+            background-image: url('images/backdrop1.jpg');
+            /* Đường dẫn đến hình nền */
+            background-repeat: no-repeat;
+            /* Không lặp lại hình nền */
+            background-size: cover;
+            /* Phủ kín toàn bộ trang */
+            background-attachment: fixed;
+            /* Cố định hình nền */
+            font-family: 'Space Mono'
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin-top:150px;"></div>
+    <div style="width: 60%;margin: 0px auto; padding: 20px 20px;background-color: #ffffff;border-radius: 10px;">
+        <h1 style="text-align: center;">BẢNG XẾP HẠNG BEE CONNECT 2024</h1>
+        <div style="text-align: center;"><a href="index.html"><img src="images/beeconnect22.png" alt="" style="width:50px;"></a></div>
+        <table id="example" class="display">
+            <thead>
+                <tr>
+                    <th>Tên đội</th>
+                    <th style="text-align: center;">Điểm số</th>
+                    <!-- Add more columns as needed based on your JSON structure-->
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.js"></script>
+    <script>
+        new DataTable('#example', {
+            ajax: 'https://script.google.com/macros/s/AKfycbwMdfk1c0vCFyqmGH445a2hG6lW3hSAs39TItzRhJTmwfzGJSn3mTBlxaFF95IcPDfKBw/exec',
+            columns: [
+                { data: 'Pizza Name' },
+                { data: 'Price' }
+            ],
+            order: [[1, 'desc']]
+        });
+    </script>
+</body>
+
+</html>
