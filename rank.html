@@ -48,11 +48,11 @@
     </style>
 </head>
 
-<body>
-    <div style="margin-top:150px;"></div>
-    <div style="width: 60%;margin: 0px auto; padding: 20px 20px;background-color: #ffffff;border-radius: 10px;">
-        <h1 style="text-align: center;">BẢNG XẾP HẠNG BEE CONNECT 2024</h1>
-        <div style="text-align: center;"><a href="index.html"><img src="images/beeconnect22.png" alt="" style="width:50px;"></a></div>
+<body id="datarank">
+    <div style="width: 60%;margin: 150px auto 0px; padding: 20px 20px;background-color: #ffffff;border-radius: 10px;">
+        <h1 style="text-align: center;" onclick="loadData()" title="Click vào nhãn để load lại dữ liệu">BẢNG XẾP HẠNG BEE CONNECT 2024</h1>
+        <div style="text-align: center;"><a href="index.html"><img src="images/beeconnect22.png" alt=""
+                    style="width:50px;"></a></div>
         <table id="example" class="display">
             <thead>
                 <tr>
@@ -75,6 +75,17 @@
             ],
             order: [[1, 'desc']]
         });
+    </script>
+    <script>
+        function loadData() {
+            $.ajax({
+                url: "rank.html", // URL API hoặc trang xử lý
+                method: "GET", // hoặc "POST" nếu bạn gửi dữ liệu
+                success: function (data) {
+                    $('#datarank').html(data); // Cập nhật nội dung của phần tử với ID 'data'
+                }
+            });
+        }
     </script>
 </body>
 
